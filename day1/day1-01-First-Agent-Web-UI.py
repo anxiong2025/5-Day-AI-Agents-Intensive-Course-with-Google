@@ -11,13 +11,18 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-# 读取 .env 文件
-env_file = Path(__file__).parent / '.env'
+# 读取 .env 文件（从项目根目录）
+env_file = Path(__file__).parent.parent / '.env'
 if env_file.exists():
     for line in env_file.read_text().splitlines():
         if line.startswith('GOOGLE_API_KEY='):
-            os.environ["GOOGLE_API_KEY"] = line.split('=', 1)[1].strip()
+            api_key = line.split('=', 1)[1].strip()
+            os.environ["GOOGLE_API_KEY"] = api_key
+            print(f"✅ API Key loaded from: {env_file}")
             break
+else:
+    print(f"⚠️ .env file not found at: {env_file}")
+    print("Please create .env file with GOOGLE_API_KEY=your-key")
 
 # 配置重试选项
 retry_config = types.HttpRetryOptions(
