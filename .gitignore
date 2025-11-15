@@ -1,0 +1,26 @@
+# 环境变量文件
+.env
+
+# UV 虚拟环境
+.venv/
+# .python-version  # 注释掉，应该提交以保持团队 Python 版本一致
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
