@@ -1,0 +1,10 @@
+[project]
+name = "5-day-ai-agents-intensive-course-with-google"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "google-adk>=1.18.0",
+    "google-genai>=1.50.1",
+    "jupyter>=1.1.1",
+]
